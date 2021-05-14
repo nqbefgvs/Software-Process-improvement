@@ -4,6 +4,7 @@ from selenium.webdriver.common.keys import Keys
 import time
 import unittest
 
+# now is chapter 6 p20
 
 class NewVisitorTest(LiveServerTestCase):
 
