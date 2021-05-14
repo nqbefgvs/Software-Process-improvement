@@ -35,7 +35,7 @@ class FunctionalTest(unittest.TestCase):
 
         # She types "Buy peacock feathers" into a text box (Edith's hobby
         # is tying fly-fishing lures)
-        inputbox.send_keys('Use peacock feathers to make a fly')
+        inputbox.send_keys('Buy peacock feathers')
 
         # When she hits enter, the page updates, and now the page lists
         # "1: Buy peacock feathers" as an item in a to-do list
@@ -47,7 +47,7 @@ class FunctionalTest(unittest.TestCase):
         # enters "Use peacock feathers to make a fly" (Edith is very methodical)
         inputbox = self.browser.find_element_by_id('id_new_item')
         inputbox.send_keys('Use peacock feathers to make a fly')
-        inputbox.send_keys(keys.ENTER)
+        inputbox.send_keys(Keys.ENTER)
         time.sleep(1)
 
         # The page updates again, and now shows both items on her list
