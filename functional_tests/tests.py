@@ -1,12 +1,16 @@
+from django.test import LiveServerTestCase
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 import time
 import unittest
 
 
-class FunctionalTest(unittest.TestCase):
+class NewVisitorTest(LiveServerTestCase):
 
     browser = webdriver.Firefox()
+
+    def setUp(self):
+        return
 
     def tearDown(self):
         self.browser.quit()
@@ -19,7 +23,7 @@ class FunctionalTest(unittest.TestCase):
     def test_can_start_a_list_and_retrieve_it_later(self):
         # Edith has heard about a cool new online to-do app. She goes
         # to check out its homepage
-        self.browser.get('http://localhost:8000')
+        self.browser.get(self.live_server_url)
 
         # She noties the page title and header mention to-do lists
         self.assertIn('To-Do', self.browser.title)
@@ -66,8 +70,3 @@ class FunctionalTest(unittest.TestCase):
         # enters "Use peacock feathers to make a fly" (Edith is very methodical)
         self.fail('Finish the test!')
 
-
-
-
-
-FunctionalTest().test_can_start_a_list_and_retrieve_it_later()
